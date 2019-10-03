@@ -7,6 +7,6 @@
 
 int main(void)
 {
-	ft_printf("ehllo\n");
+	ft_printf("hello\n");
 	return (0);
 }
