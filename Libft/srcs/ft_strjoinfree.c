@@ -6,7 +6,7 @@
 /*   By: plagache <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/20 17:28:46 by plagache          #+#    #+#             */
-/*   Updated: 2018/12/21 14:21:24 by plagache         ###   ########.fr       */
+/*   Updated: 2019/10/28 13:08:51 by plagache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 char	*ft_strjoinfree(int c, char const s1, char const s2)
 {
 	char	*mem;
+
 	mem = ft_strjoin(s1, s2);
 	if (s1 == 0)
 		return ((char*)s2);
