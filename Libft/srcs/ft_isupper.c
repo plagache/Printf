@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_2lstadd_first.c                                 :+:      :+:    :+:   */
+/*   ft_isupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alagache <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: plagache <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/06 13:58:42 by alagache          #+#    #+#             */
-/*   Updated: 2019/04/25 10:57:04 by alagache         ###   ########.fr       */
+/*   Created: 2018/11/29 16:07:20 by plagache          #+#    #+#             */
+/*   Updated: 2018/12/07 16:00:35 by plagache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_2lstadd_first(t_2list **alst, t_2list *new)
+int	ft_isupper(int c)
 {
-	(*alst)->previous = new;
-	new->next = *alst;
-	*alst = new;
+	if (c >= 'A' && c <= 'Z')
+		return (1);
+	return (0);
 }

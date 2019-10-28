@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstadd.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alagache <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: plagache <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/29 13:50:22 by alagache          #+#    #+#             */
-/*   Updated: 2019/04/25 10:57:47 by alagache         ###   ########.fr       */
+/*   Created: 2018/11/29 20:09:23 by plagache          #+#    #+#             */
+/*   Updated: 2018/12/07 16:04:49 by plagache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 void	ft_lstadd(t_list **alst, t_list *new)
 {
-	if (alst != NULL && new != NULL)
-	{
-		(*new).next = *alst;
-		*alst = new;
-	}
+	new->next = *alst;
+	*alst = new;
 }

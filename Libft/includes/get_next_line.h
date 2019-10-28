@@ -3,28 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alagache <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: plagache <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/25 09:00:08 by alagache          #+#    #+#             */
-/*   Updated: 2019/05/23 14:24:03 by alagache         ###   ########.fr       */
+/*   Created: 2019/05/11 16:54:47 by plagache          #+#    #+#             */
+/*   Updated: 2019/05/23 16:41:06 by plagache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
-
 # define BUFF_SIZE 1
-
-# include <stdlib.h>
-# include <unistd.h>
 # include "libft.h"
+# include <unistd.h>
+# include <stdlib.h>
 
-typedef struct	s_data
+typedef struct		s_data
 {
-	int		fd;
-	char	*buffer;
-}				t_data;
+	int				fd;
+	char			*content;
+}					t_data;
 
-int				get_next_line(const int fd, char **line);
+int					get_next_line(const int fd, char **line);
 
 #endif

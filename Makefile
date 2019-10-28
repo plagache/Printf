@@ -35,7 +35,7 @@ CFLAGS= -Wall -Werror -Wextra
 
 HEADERPATH= includes
 
-LHEADERPATH= Libft/includes
+LHEADERPATH= libft/includes
 
 OBJDIR= obj
 

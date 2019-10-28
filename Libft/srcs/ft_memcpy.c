@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alagache <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: plagache <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/14 16:56:28 by alagache          #+#    #+#             */
-/*   Updated: 2019/04/25 10:58:27 by alagache         ###   ########.fr       */
+/*   Created: 2018/11/16 18:23:21 by plagache          #+#    #+#             */
+/*   Updated: 2018/12/07 16:00:35 by plagache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,13 @@
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	int	i;
+	int b;
 
-	i = 0;
-	if (dst == NULL || src == NULL)
-		return (NULL);
-	while (i < (int)n)
+	b = 0;
+	while (b < (int)n)
 	{
-		((unsigned char*)dst)[i] = ((unsigned char*)src)[i];
-		i++;
+		((char *)dst)[b] = ((char *)src)[b];
+		b++;
 	}
 	return (dst);
 }

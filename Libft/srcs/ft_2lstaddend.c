@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_2lstaddend.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: plagache <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/19 19:04:44 by plagache          #+#    #+#             */
-/*   Updated: 2018/12/17 11:57:21 by plagache         ###   ########.fr       */
+/*   Created: 2018/12/20 12:05:59 by plagache          #+#    #+#             */
+/*   Updated: 2018/12/20 16:35:43 by plagache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+void	ft_2lstaddend(t_dlist **lst, t_dlist *link)
 {
-	int d;
-
-	d = -1;
-	while (d < (int)ft_strlen(s))
+	while ((*lst)->next != NULL)
+		*lst = (*lst)->next;
+	if ((*lst)->next == NULL)
 	{
-		d++;
-		if (*(s + d) == (char)c)
-			return ((char*)s + d);
+		link->prev = (*lst)->next;
+		link->next = NULL;
 	}
-	return (0);
 }

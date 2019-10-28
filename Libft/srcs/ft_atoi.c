@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alagache <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: plagache <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/21 14:29:58 by alagache          #+#    #+#             */
-/*   Updated: 2019/04/25 10:57:24 by alagache         ###   ########.fr       */
+/*   Created: 2018/11/23 13:22:57 by plagache          #+#    #+#             */
+/*   Updated: 2018/12/07 16:00:35 by plagache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,24 @@
 
 int	ft_atoi(const char *str)
 {
-	int	i;
-	int	s;
-	int	v;
+	int			c;
+	long long	stock;
+	int			sign;
 
-	v = 0;
-	i = 0;
-	s = 1;
-	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\r' || str[i] == '\v'
-			|| str[i] == '\f' || str[i] == '\n')
-		i++;
-	if (str[i] == '-')
-		s = -1;
-	if (str[i] == '+' || str[i] == '-')
-		i++;
-	while (str[i] <= '9' && str[i] >= '0' && str[i])
+	sign = 1;
+	stock = 0;
+	c = 0;
+	while (str[c] == 32 || str[c] == '\n' || str[c] == '\t' || str[c] == '\v' ||
+			str[c] == '\f' || str[c] == '\r')
+		c++;
+	if (str[c] == '-')
+		sign = -1;
+	if (str[c] == '+' || str[c] == '-')
+		c++;
+	while (str[c] <= 57 && str[c] >= 48)
 	{
-		v = v * 10 + str[i] - '0';
-		i++;
+		stock = str[c] - '0' + (10 * stock);
+		c++;
 	}
-	return (s * v);
+	return (stock * sign);
 }

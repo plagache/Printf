@@ -3,31 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   ft_2lstnew.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alagache <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: plagache <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/06 13:11:12 by alagache          #+#    #+#             */
-/*   Updated: 2019/04/25 10:57:22 by alagache         ###   ########.fr       */
+/*   Created: 2018/12/20 12:09:59 by plagache          #+#    #+#             */
+/*   Updated: 2018/12/20 16:37:56 by plagache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-t_2list	*ft_2lstnew(void const *cntent, size_t cntent_size)
+t_dlist		*ft_2lstnew(void *content)
 {
-	t_2list	*new_2link;
+	t_dlist	*link;
 
-	if (!(new_2link = (t_2list *)malloc(sizeof(t_2list))))
-		return (NULL);
-	if (!cntent)
-		new_2link->cntent = NULL;
+	if (!(link = (t_dlist*)malloc(sizeof(t_dlist))))
+		return (0);
+	if (content == 0)
+		link->content = NULL;
 	else
 	{
-		if (!(new_2link->cntent = (void *)malloc(sizeof(cntent))))
-			return (NULL);
-		new_2link->cntent = ft_memmove(new_2link->cntent, cntent, cntent_size);
+		if (!(link->content = (void*)malloc(sizeof(*content))))
+			return (0);
+		link->content = ft_memmove(link->content, content, sizeof(*content));
 	}
-	new_2link->next = NULL;
-	new_2link->previous = NULL;
-	return (new_2link);
+	link->next = NULL;
+	link->prev = NULL;
+	return (link);
 }

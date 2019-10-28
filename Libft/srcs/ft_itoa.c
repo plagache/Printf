@@ -3,95 +3,56 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alagache <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: plagache <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/21 14:30:14 by alagache          #+#    #+#             */
-/*   Updated: 2019/07/24 11:44:48 by alagache         ###   ########.fr       */
+/*   Created: 2018/11/23 14:24:33 by plagache          #+#    #+#             */
+/*   Updated: 2018/12/07 16:00:35 by plagache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
+#include <stdlib.h>
 
-static char	*min_int(void)
+static int		ft_lenn(int n)
 {
-	char	*str;
+	int len;
 
-	if (!(str = (char *)malloc(sizeof(char) * 12)))
-		return (NULL);
-	ft_strcpy(str, "-2147483648");
-	return (str);
-}
-
-static char	*neg_ints(int n)
-{
-	char	*str;
-	int		cpy;
-	int		chrs;
-
-	cpy = n;
-	chrs = 2;
-	while (cpy > 9)
-	{
-		cpy /= 10;
-		chrs++;
-	}
-	if (!(str = (char *)malloc(sizeof(char) * (chrs + 1))))
-		return (NULL);
-	str[chrs] = '\0';
-	str[0] = '-';
-	while (--chrs > 0)
-	{
-		str[chrs] = (n % 10) + '0';
-		n /= 10;
-	}
-	return (str);
-}
-
-static char	*pos_ints(int n)
-{
-	char	*str;
-	int		cpy;
-	int		chrs;
-
-	cpy = n;
-	chrs = 1;
-	while (cpy > 9)
-	{
-		cpy /= 10;
-		chrs++;
-	}
-	if (!(str = (char *)malloc(sizeof(char) * (chrs + 1))))
-		return (NULL);
-	str[chrs] = '\0';
-	while (--chrs >= 0)
-	{
-		str[chrs] = (n % 10) + '0';
-		n /= 10;
-	}
-	return (str);
-}
-
-char		*ft_itoa(int n)
-{
-	char	*str;
-
-	if (n == -2147483648)
-	{
-		str = min_int();
-		return (str);
-	}
+	len = 1;
 	if (n < 0)
 	{
-		if ((str = neg_ints(-n)) == NULL)
-			return (NULL);
-		return (str);
+		n = -n;
+		len++;
 	}
-	if (n >= 0)
+	while (n > 9)
 	{
-		if ((str = pos_ints(n)) == NULL)
-			return (NULL);
-		return (str);
+		n = n / 10;
+		len++;
 	}
-	return (NULL);
+	return (len);
+}
+
+char			*ft_itoa(int n)
+{
+	char	*str;
+	int		len;
+	int		stock;
+
+	stock = n;
+	len = ft_lenn(n);
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
+	if (n < 0)
+		n = -n;
+	if (!(str = (char*)malloc(sizeof(char) * (len + 1))))
+		return (0);
+	str[len] = '\0';
+	while (len > 0)
+	{
+		len--;
+		str[len] = (n % 10) + '0';
+		n = n / 10;
+	}
+	if (stock < 0)
+		str[0] = '-';
+	return (str);
 }

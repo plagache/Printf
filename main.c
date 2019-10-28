@@ -7,6 +7,6 @@
 
 int main(void)
 {
-	ft_printf("hello\n");
+	ft_printf("hello\nTest de ouf %i\n", 2131854);
 	return (0);
 }

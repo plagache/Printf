@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_2lstdel.c                                       :+:      :+:    :+:   */
+/*   ft_islower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alagache <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: plagache <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/06 13:10:57 by alagache          #+#    #+#             */
-/*   Updated: 2019/04/25 10:57:13 by alagache         ###   ########.fr       */
+/*   Created: 2018/11/29 16:05:08 by plagache          #+#    #+#             */
+/*   Updated: 2018/12/07 16:00:35 by plagache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_2lstdel(t_2list **alst, void (*del)(void *))
+int	ft_islower(int c)
 {
-	if ((*alst)->next)
-		ft_2lstdel(&(*alst)->next, del);
-	ft_2lstdelone(alst, del);
+	if (c >= 'a' && c <= 'z')
+		return (1);
+	return (0);
 }

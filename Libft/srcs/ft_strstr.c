@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alagache <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: plagache <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/21 14:31:32 by alagache          #+#    #+#             */
-/*   Updated: 2019/04/27 19:03:34 by alagache         ###   ########.fr       */
+/*   Created: 2018/11/21 14:12:45 by plagache          #+#    #+#             */
+/*   Updated: 2018/12/07 16:00:35 by plagache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,27 @@
 
 char	*ft_strstr(const char *haystack, const char *needle)
 {
-	int	i;
-	int	j;
-	int	needle_len;
+	int		c;
+	int		d;
+	char	*stock;
 
-	needle_len = (int)ft_strlen(needle);
-	i = 0;
-	if (haystack != NULL)
+	c = 0;
+	if (!(ft_strlen(needle)))
+		return ((char*)haystack);
+	while (haystack[c])
 	{
-		if (!needle_len)
-			return ((char *)haystack);
-		while (*(haystack + i))
+		d = 0;
+		if (needle[d] == haystack[c])
 		{
-			j = 0;
-			while (*(needle + j) == *(haystack + i + j))
+			stock = ((char*)haystack + c);
+			while (needle[d] == haystack[c + d])
 			{
-				j++;
-				if (j == needle_len)
-					return ((char *)haystack + i);
+				if (needle[d + 1] == '\0')
+					return (stock);
+				d++;
 			}
-			i++;
 		}
+		c++;
 	}
-	return (NULL);
+	return (0);
 }
